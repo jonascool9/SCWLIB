@@ -1,4 +1,4 @@
-function load()
+function loadlib()
 local library = {}
 
 function library:CreateWindow(name)
