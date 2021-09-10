@@ -1,3 +1,4 @@
+function load()
 local library = {}
 
 function library:CreateWindow(name)
@@ -10,6 +11,7 @@ function library:CreateWindow(name)
 	local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 	local Toggle = Instance.new("TextButton")
 	local UserInputService = game:GetService("UserInputService")
+	local ts = game:GetService("TweenService")
 
 	SCWLIB.Name = "SCWLIB"
 	SCWLIB.Parent = game.Players.LocalPlayer.PlayerGui
@@ -21,7 +23,7 @@ function library:CreateWindow(name)
 	TopMain.BackgroundColor3 = Color3.new(0.0588235, 0.0588235, 0.0588235)
 	TopMain.BorderSizePixel = 0
 	TopMain.Position = UDim2.new(0.396363646, 0, 0.343934089, 0)
-	TopMain.Size = UDim2.new(0.343636364, 0, 0.0365135446, 0)
+	TopMain.Size = UDim2.new(0.0, 0, 0.0, 0)
 
 	Container.Name = "Container"
 	Container.Parent = TopMain
@@ -111,9 +113,12 @@ function library:CreateWindow(name)
 		end
 	end)
 
+	---------Tween
+	TopMain:TweenSize(UDim2.new(0.343636364, 0, 0.0365135446, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Linear, 2)
+	--------------
+
 	Toggle.MouseButton1Click:Connect(function()
-		local ts = game:GetService("TweenService")
-		local TweenInfo = TweenInfo.new(
+		local TweenInfos = TweenInfo.new(
 			0.8,
 			Enum.EasingStyle.Linear,
 			Enum.EasingDirection.In,
@@ -121,13 +126,16 @@ function library:CreateWindow(name)
 			false,
 			0
 		)
-		local tween = ts:Create(Toggle, TweenInfo, {Rotation = 0})
+		local tween = ts:Create(Toggle, TweenInfos, {Rotation = 0})
+		local tween2 = ts:Create(Toggle, TweenInfos, {Rotation = 90})
 		if Container.Size == UDim2.new(0.813, 0,9.903, 0) then
 			Frames:TweenSize(UDim2.new(0.187, 0,0.019, 0))
 			Container:TweenSize(UDim2.new(0.813, 0,0.019, 0))
+			tween:Play()
 		else
 			Container:TweenSize(UDim2.new(0.813, 0,9.903, 0))
 			Frames:TweenSize(UDim2.new(0.187, 0,9.903, 0))
+			tween2:Play()
 		end
 	end)
 
@@ -151,5 +159,14 @@ function library:CreateWindow(name)
 			pcall(callback)
 		end)
 	end
-	return scwlib
+		return scwlib
+	end
+
+local main = library:CreateWindow('Antonio Exploits')
+main:CreateButton('Infinite yield', function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+main:CreateButton('Music gui', function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/jonascool9/ScoobsScripts/main/Musikdings.Lua'))
+	end)
 end
