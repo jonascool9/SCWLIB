@@ -1,6 +1,5 @@
-function loadlib()
 local library = {}
-
+function loadlib.loadlib()
 function library:CreateWindow(name)
 	local SCWLIB = Instance.new("ScreenGui")
 	local TopMain = Instance.new("Frame")
