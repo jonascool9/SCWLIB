@@ -1,5 +1,4 @@
 local library = {}
-function library.loadlib()
 function library:CreateWindow(name)
 	local SCWLIB = Instance.new("ScreenGui")
 	local TopMain = Instance.new("Frame")
@@ -168,4 +167,3 @@ end)
 main:CreateButton('Music gui', function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/jonascool9/ScoobsScripts/main/Musikdings.Lua'))
 	end)
-end
