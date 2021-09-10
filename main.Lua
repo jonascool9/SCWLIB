@@ -153,9 +153,3 @@ function library:CreateWindow(name)
 	end
 	return scwlib
 end
-
-local main = library:CreateWindow("fenster 10")
-main:CreateButton("ok", function()
-	print("antonio")
-end)
-
