@@ -198,5 +198,8 @@ end
 
 local lib = library:Load('Antonio Exploits')
 lib:CreateButton('Infinite Yield', function()
-	print('kek')
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/jonascool9/SCWLIB/main/main2.Lua'))()
+end)
+lib:CreateButton('Kick Yourself', function()
+	game.Players.LocalPlayer:Kick("Spannend")
 end)
