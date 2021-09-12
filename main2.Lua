@@ -192,6 +192,14 @@ function library:Load(name)
 		TextButton.MouseButton1Click:Connect(function()
 			pcall(callback)
 		end)
+	function scwlib2:CreateFrame(imageid, page, Framename)
+		local ImageButton instance.new("ImageButton")
+		local Frame = instance.new("Frame")
+
+		ImageButton.Parent = ListFrame
+		ImageButton.ImageId = imageid
+		uicorner(ImageButton)
+	end
 	end
 	return scwlib2
 end
